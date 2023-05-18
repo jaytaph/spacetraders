@@ -2,7 +2,7 @@
 
 namespace Jaytaph\Spacetraders\Api;
 
-use Psr\Http\Message\ResponseInterface;
+    use Psr\Http\Message\ResponseInterface;
 
 class ApiResponse
 {

@@ -1,5 +1,13 @@
 {
     "name": "jaytaph/spacetraders",
+    "description": "PHP client for the SpaceTraders.io API",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "spacetraders",
+        "api",
+        "client"
+    ],
     "autoload": {
         "psr-4": {
             "Jaytaph\\Spacetraders\\": "src/"
