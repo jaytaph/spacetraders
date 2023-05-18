@@ -49,7 +49,7 @@ $app->addCommands(commands: [
 //    new Command\Fleet\ScanSystemCommand(),
 //    new Command\Fleet\ScanWaypointsCommand(),
 //    new Command\Fleet\ScanShipsCommand(),
-//    new Command\Fleet\RefuelCommand(),
+    new Command\Fleet\RefuelCommand(),
 //    new Command\Fleet\PurchaseCargoCommand(),
 //    new Command\Fleet\TransferCargoCommand(),
 ]);
