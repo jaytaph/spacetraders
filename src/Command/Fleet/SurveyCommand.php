@@ -2,7 +2,7 @@
 
 namespace Jaytaph\Spacetraders\Command\Fleet;
 
-use Jaytaph\Spacetraders\Api\Api;
+use Jaytaph\Spacetraders\Api\Component\Survey;
 use Jaytaph\Spacetraders\Api\Response\Fleet\SurveyResponse;
 use Jaytaph\Spacetraders\Api\Command\Fleet\SurveyCommand as ApiSurveyCommand;
 use Jaytaph\Spacetraders\Command\BaseCommand;
@@ -34,6 +34,13 @@ class SurveyCommand extends BaseCommand
         $result = SurveyResponse::fromJson($response->data);
 
         OutputTables::displaySurveys($output, $result->surveys);
+
+        $surveys = json_decode(@file_get_contents(".surveys.json"), true);
+        if (! is_array($surveys)) {
+            $surveys = [];
+        }
+        $surveys = array_merge($surveys, $result->surveys);
+        file_put_contents(".surveys.json", json_encode($surveys, JSON_PRETTY_PRINT));
 
         return Command::SUCCESS;
     }

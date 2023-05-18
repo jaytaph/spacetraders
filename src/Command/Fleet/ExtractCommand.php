@@ -2,7 +2,7 @@
 
 namespace Jaytaph\Spacetraders\Command\Fleet;
 
-use Jaytaph\Spacetraders\Api\Api;
+use Jaytaph\Spacetraders\Api\Component\Survey;
 use Jaytaph\Spacetraders\Api\Response\Fleet\ExtractResponse;
 use Jaytaph\Spacetraders\Api\Command\Fleet\ExtractCommand as ApiExtractCommand;
 use Jaytaph\Spacetraders\Command\BaseCommand;
@@ -22,14 +22,20 @@ class ExtractCommand extends BaseCommand
             ->setHelp('Extract minirals')
             ->setDefinition([
                 new InputArgument('ship', InputArgument::REQUIRED, 'The ship symbol'),
+                new InputArgument('survey', InputArgument::OPTIONAL, 'Survey signature'),
             ])
         ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $survey = $this->getOptionalSurvey($input->getArgument('survey'));
+
         $api = $this->getApi();
-        $command = new ApiExtractCommand(strval($input->getArgument('ship')));
+        $command = new ApiExtractCommand(
+            strval($input->getArgument('ship')),
+            $survey
+        );
         $response = $api->execute($command);
         $result = ExtractResponse::fromJson($response->data);
 
@@ -56,4 +62,47 @@ class ExtractCommand extends BaseCommand
 
         return Command::SUCCESS;
     }
+
+    /**
+     * @param mixed[] $json
+     * @return Survey[]
+     * @throws \Exception
+     */
+    protected function hydrateSurveys(array $json): array
+    {
+        $ret = [];
+        foreach ($json as $survey) {
+            $entry = new Survey();
+            $entry->signature = $survey['signature'];
+            $entry->symbol = $survey['symbol'];
+            $entry->size = $survey['size'];
+            $entry->deposits = $survey['deposits'];
+            $entry->expiration = new \DateTime($survey['expiration']['date'], new \DateTimeZone($survey['expiration']['timezone']));
+            $ret[] = $entry;
+        }
+
+        return $ret;
+    }
+
+    protected function getOptionalSurvey(string $signature): ?Survey
+    {
+        if (!$signature) {
+            return null;
+        }
+
+        $json = json_decode(@file_get_contents(".surveys.json"), true);
+        if (! is_array($json)) {
+            $json = [];
+        }
+
+        $surveys = $this->hydrateSurveys($json);
+        foreach ($surveys as $entry) {
+            if ($entry->signature === $signature) {
+                return $entry;
+            }
+        }
+
+        return null;
+    }
+
 }

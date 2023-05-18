@@ -38,6 +38,7 @@ $app->addCommands(commands: [
     new Command\Fleet\RefineCommand(),
     new Command\Fleet\ChartCommand(),
     new Command\Fleet\SurveyCommand(),
+    new Command\Fleet\SurveyListCommand(),
     new Command\Fleet\ExtractCommand(),
 //    new Command\Fleet\JetisonCargoCommand(),
 //    new Command\Fleet\JumpCommand(),

@@ -78,7 +78,7 @@ class OutputTables
             $table->addRow([
                 $survey->signature,
                 $survey->symbol,
-                join(", ", $survey->deposits),
+                join(", ", $survey->deposits ?? []),
                 $survey->expiration->format('Y-m-d H:i:s'),
                 $survey->size,
             ]);
