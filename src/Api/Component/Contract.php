@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Contract {
+class Contract
+{
     public string $id;
     public string $factionSymbol;
     public string $type;

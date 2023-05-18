@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Tradegood {
+class Tradegood
+{
     public string $symbol;
     public int $tradeVolume;
     public string $supply;

@@ -39,7 +39,7 @@ class PurchaseShipCommand extends BaseCommand
         $output->writeln("Ship Purchase Details");
         $output->writeln("====================");
         $output->writeln("Agent:");
-        $output->writeln("  Account ID   : <info>" . $result->agent->accountId. "</info>");
+        $output->writeln("  Account ID   : <info>" . $result->agent->accountId . "</info>");
         $output->writeln("  Symbol       : <info>" . $result->agent->callsign . "</info>");
         $output->writeln("  Headquarters : <info>" . $result->agent->headquarters . "</info>");
         $output->writeln("  Credits      : <info>" . $result->agent->credits . "</info>");

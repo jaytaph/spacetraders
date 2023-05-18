@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Market {
+class Market
+{
     public string $symbol;
     /** @var Export[] */
     public array $exports;

@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Engine {
+class Engine
+{
     public string $symbol;
     public string $name;
     public string $description;
@@ -12,7 +13,7 @@ class Engine {
     public int $requirementsCrew;
 
     public static function fromJson(array $data): self
-{
+    {
         $engine = new self();
         $engine->symbol = $data['symbol'];
         $engine->name = $data['name'];
@@ -24,6 +25,4 @@ class Engine {
 
         return $engine;
     }
-
-
 }

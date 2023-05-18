@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Transaction {
+class Transaction
+{
     public string $waypointSymbol;
     public string $shipSymbol;
     public string $tradeSymbol;

@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Frame {
+class Frame
+{
     public string $symbol;
     public string $name;
     public string $description;
@@ -14,7 +15,7 @@ class Frame {
     public int $requirementsCrew;
 
     public static function fromJson(array $data): self
-{
+    {
         $frame = new self();
         $frame->symbol = $data['symbol'];
         $frame->name = $data['name'];

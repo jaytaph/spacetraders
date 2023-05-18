@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Produced {
+class Produced
+{
     public string $tradeSymbol;
     public int $units;
 

@@ -34,6 +34,4 @@ class DetailCommand extends BaseCommand
 
         return Command::SUCCESS;
     }
-
-
 }

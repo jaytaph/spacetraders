@@ -55,6 +55,4 @@ class ListCommand extends BaseCommand
 
         return Command::SUCCESS;
     }
-
-
 }

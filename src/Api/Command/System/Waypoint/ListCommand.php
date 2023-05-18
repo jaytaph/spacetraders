@@ -30,7 +30,7 @@ class ListCommand implements Command
             'limit' => $this->limit
         ]);
 
-        return '/v2/systems/'.$this->systemSymbol.'/waypoints?' . $queryString;
+        return '/v2/systems/' . $this->systemSymbol . '/waypoints?' . $queryString;
     }
 
     public function getJson(): array

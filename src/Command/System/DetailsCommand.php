@@ -37,7 +37,7 @@ class DetailsCommand extends BaseCommand
         $output->writeln("==============");
         $output->writeln("Symbol   : <info>" . $result->system->symbol . "</info>");
         $output->writeln("Sector   : <info>" . $result->system->sectorSymbol . "</info>");
-        $output->writeln("Type     : <info>" . $result->system->type. "</info>");
+        $output->writeln("Type     : <info>" . $result->system->type . "</info>");
         $output->writeln("Coords   : <info>" . $result->system->x . "," . $result->system->y . "</info>");
         $output->writeln("Factions : <info>" . join(", ", $result->system->factions) . "</info>");
 
@@ -60,6 +60,4 @@ class DetailsCommand extends BaseCommand
 
         return Command::SUCCESS;
     }
-
-
 }

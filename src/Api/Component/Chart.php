@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Chart {
+class Chart
+{
     public string $waypointSymbol;
     public string $submittedBy;
     public \DateTime $submittedOn;

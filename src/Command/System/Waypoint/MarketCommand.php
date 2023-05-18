@@ -188,6 +188,4 @@ class MarketCommand extends BaseCommand
         $table->render();
         $output->writeln("");
     }
-
-
 }

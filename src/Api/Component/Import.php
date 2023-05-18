@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Import {
+class Import
+{
     public string $symbol;
     public string $name;
     public string $description;

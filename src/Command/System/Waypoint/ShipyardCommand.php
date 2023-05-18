@@ -134,6 +134,4 @@ class ShipyardCommand extends BaseCommand
         $table->render();
         $output->writeln("");
     }
-
-
 }

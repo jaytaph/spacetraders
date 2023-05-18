@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Shipyard {
+class Shipyard
+{
     public string $symbol;
     /** @var ShipType[] */
     public array $shipTypes;

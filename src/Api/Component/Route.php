@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Route {
+class Route
+{
     public RoutePoint $departure;
     public RoutePoint $destination;
     public ?\DateTime $departureTime;

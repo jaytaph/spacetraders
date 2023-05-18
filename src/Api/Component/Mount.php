@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Mount {
+class Mount
+{
     public string $symbol;
     public string $name;
     public string $description;
@@ -27,5 +28,4 @@ class Mount {
 
         return $mount;
     }
-
 }

@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Ship {
+class Ship
+{
     public string $symbol;
     public Nav $nav;
     public Crew $crew;

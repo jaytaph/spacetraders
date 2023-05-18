@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Nav {
+class Nav
+{
     public string $system;
     public string $waypoint;
     public Route $route;

@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Agent {
+class Agent
+{
     public string $accountId;
     public string $callsign;
     public string $headquarters;

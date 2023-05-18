@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Jumpgate {
+class Jumpgate
+{
     public int $jumprange;
     public string $faction;
     /** @var Connection[] */

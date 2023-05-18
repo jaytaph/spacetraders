@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Survey {
+class Survey
+{
     public string $signature;
     public string $symbol;
     /** @var string[] */

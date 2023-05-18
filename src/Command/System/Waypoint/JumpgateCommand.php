@@ -81,6 +81,4 @@ class JumpgateCommand extends BaseCommand
         $table->render();
         $output->writeln("");
     }
-
-
 }

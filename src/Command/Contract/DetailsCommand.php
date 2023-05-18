@@ -41,16 +41,16 @@ class DetailsCommand extends BaseCommand
         $output->writeln("Fulfilled : <info>" . ($result->contract->fulfilled  ? "Yes" : "No") . "</info>");
         $output->writeln("Expration : <info>" . $result->contract->expiration->format('Y-m-d H:i:s T') . "</info>");
 
-        $output->writeln("Deadline          : <info>".$result->contract->terms->deadline->format('Y-m-d H:i:s T')."</info>");
-        $output->writeln("Payment accepted  : <info>".$result->contract->terms->paymentOnAccepted."</info>");
-        $output->writeln("Payment fulfilled : <info>".$result->contract->terms->paymentOnFulfilled."</info>");
+        $output->writeln("Deadline          : <info>" . $result->contract->terms->deadline->format('Y-m-d H:i:s T') . "</info>");
+        $output->writeln("Payment accepted  : <info>" . $result->contract->terms->paymentOnAccepted . "</info>");
+        $output->writeln("Payment fulfilled : <info>" . $result->contract->terms->paymentOnFulfilled . "</info>");
 
         foreach ($result->contract->terms->deliveries as $delivery) {
             $output->writeln("* Delivery");
-            $output->writeln("    Trade           : <info>".$delivery->tradeSymbol."</info>");
-            $output->writeln("    Destination     : <info>".$delivery->destination."</info>");
-            $output->writeln("    Units required  : <info>".$delivery->unitsRequired."</info>");
-            $output->writeln("    Units fulfilled : <info>".$delivery->unitsFulfilled."</info>");
+            $output->writeln("    Trade           : <info>" . $delivery->tradeSymbol . "</info>");
+            $output->writeln("    Destination     : <info>" . $delivery->destination . "</info>");
+            $output->writeln("    Units required  : <info>" . $delivery->unitsRequired . "</info>");
+            $output->writeln("    Units fulfilled : <info>" . $delivery->unitsFulfilled . "</info>");
         }
 
         return Command::SUCCESS;

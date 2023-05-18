@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Cargo {
+class Cargo
+{
     public int $capacity;
     public int $units;
     /** @var Inventory[]  */

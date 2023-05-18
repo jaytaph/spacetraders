@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class ShipType {
+class ShipType
+{
     public string $type;
 
     public static function fromJson(array $data): self

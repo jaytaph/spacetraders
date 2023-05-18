@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Fuel {
+class Fuel
+{
     public int $current;
     public int $capacity;
     public int $consumedAmount;

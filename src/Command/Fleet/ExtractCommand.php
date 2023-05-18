@@ -38,9 +38,9 @@ class ExtractCommand extends BaseCommand
         $output->writeln("Cooldown Details");
         $output->writeln("================");
         $output->writeln("Symbol          : <info>" . $result->cooldown->shipSymbol . "</info>");
-        $output->writeln("Total seconds   : <info>" . $result->cooldown->totalSeconds. "</info>");
-        $output->writeln("Total remaining : <info>" . $result->cooldown->remainingSeconds. "</info>");
-        $output->writeln("Expiration      : <info>" . $result->cooldown->expiration->format('Y-m-d H:i:s'). "</info>");
+        $output->writeln("Total seconds   : <info>" . $result->cooldown->totalSeconds . "</info>");
+        $output->writeln("Total remaining : <info>" . $result->cooldown->remainingSeconds . "</info>");
+        $output->writeln("Expiration      : <info>" . $result->cooldown->expiration->format('Y-m-d H:i:s') . "</info>");
         $output->writeln("");
 
         $output->writeln("Extraction Details");

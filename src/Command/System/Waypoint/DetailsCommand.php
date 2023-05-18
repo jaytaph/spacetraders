@@ -41,10 +41,10 @@ class DetailsCommand extends BaseCommand
         $output->writeln("==============");
         $output->writeln("Symbol  : <info>" . $result->waypoint->symbol . "</info>");
         $output->writeln("System  : <info>" . $result->waypoint->systemSymbol . "</info>");
-        $output->writeln("Type    : <info>" . $result->waypoint->type. "</info>");
+        $output->writeln("Type    : <info>" . $result->waypoint->type . "</info>");
         $output->writeln("Coords  : <info>" . $result->waypoint->x . "," . $result->waypoint->y . "</info>");
         $output->writeln("Faction : <info>" . $result->waypoint->faction . "</info>");
-        $output->writeln("Chart   : <info>" . $result->waypoint->chart->waypointSymbol . " (". $result->waypoint->chart->submittedBy.")</info>");
+        $output->writeln("Chart   : <info>" . $result->waypoint->chart->waypointSymbol . " (" . $result->waypoint->chart->submittedBy . ")</info>");
 
         $orbitals = [];
         foreach ($result->waypoint->orbitals as $orbital) {
@@ -73,6 +73,4 @@ class DetailsCommand extends BaseCommand
 
         return Command::SUCCESS;
     }
-
-
 }

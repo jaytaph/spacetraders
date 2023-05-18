@@ -36,9 +36,9 @@ class ChartCommand extends BaseCommand
 
         $output->writeln('Chart details:');
         $output->writeln("---------------");
-        $output->writeln("  Waypoint     : <info>".$result->chart->waypointSymbol . "</info>\n");
-        $output->writeln("  Submitted by : <info>".$result->chart->submittedBy . "</info>\n");
-        $output->writeln("  Submitted on : <info>".$result->chart->submittedOn->format('Y-m-d H:i:s') . "</info>\n");
+        $output->writeln("  Waypoint     : <info>" . $result->chart->waypointSymbol . "</info>\n");
+        $output->writeln("  Submitted by : <info>" . $result->chart->submittedBy . "</info>\n");
+        $output->writeln("  Submitted on : <info>" . $result->chart->submittedOn->format('Y-m-d H:i:s') . "</info>\n");
 
         OutputTables::displayWaypoints($output, [$result->waypoint]);
 

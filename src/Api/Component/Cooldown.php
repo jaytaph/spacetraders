@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Cooldown {
+class Cooldown
+{
     public string $shipSymbol;
     public int $totalSeconds;
     public int $remainingSeconds;

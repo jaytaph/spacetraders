@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Reactor {
+class Reactor
+{
     public string $symbol;
     public string $name;
     public string $description;
@@ -26,5 +27,4 @@ class Reactor {
 
         return $reactor;
     }
-
 }

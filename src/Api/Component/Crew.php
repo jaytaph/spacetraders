@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Crew {
+class Crew
+{
     public int $current;
     public int $capacity;
     public int $required;

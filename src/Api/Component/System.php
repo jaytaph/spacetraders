@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class System {
+class System
+{
     public string $symbol;
     public string $sectorSymbol;
     public string $type;
@@ -24,7 +25,7 @@ class System {
         $result->waypoints = array_map(function ($waypoint) {
             return Waypoint::fromJson($waypoint);
         }, $data['waypoints']);
-        $result->factions = array_map(function ($faction)  {
+        $result->factions = array_map(function ($faction) {
             return $faction['symbol'];
         }, $data['factions']);
 

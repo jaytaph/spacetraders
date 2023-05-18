@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Consumed {
+class Consumed
+{
     public string $tradeSymbol;
     public int $units;
 

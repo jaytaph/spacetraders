@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Connection {
+class Connection
+{
     public string $symbol;
     public string $sectorSymbol;
     public string $type;

@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class RoutePoint {
+class RoutePoint
+{
     public string $symbol;
     public string $type;
     public string $system;

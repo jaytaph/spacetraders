@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Waypoint {
+class Waypoint
+{
     public string $symbol;
     public string $type;
     public string $systemSymbol;

@@ -102,41 +102,41 @@ class DetailsCommand extends BaseCommand
     protected function displayCrew(OutputInterface $output, Crew $crew)
     {
         $output->writeln("Crew :");
-        $output->writeln("  Current  : <info>" . $crew->current. "</info>");
-        $output->writeln("  Required : <info>" . $crew->required. "</info>");
-        $output->writeln("  Capacity : <info>" . $crew->capacity. "</info>");
-        $output->writeln("  Rotation : <info>" . $crew->rotation. "</info>");
-        $output->writeln("  Morale   : <info>" . $crew->morale. "</info>");
-        $output->writeln("  Wages    : <info>" . $crew->wages. "</info>");
+        $output->writeln("  Current  : <info>" . $crew->current . "</info>");
+        $output->writeln("  Required : <info>" . $crew->required . "</info>");
+        $output->writeln("  Capacity : <info>" . $crew->capacity . "</info>");
+        $output->writeln("  Rotation : <info>" . $crew->rotation . "</info>");
+        $output->writeln("  Morale   : <info>" . $crew->morale . "</info>");
+        $output->writeln("  Wages    : <info>" . $crew->wages . "</info>");
         $output->writeln("");
     }
 
     protected function displayFrame(OutputInterface $output, Frame $frame)
     {
         $output->writeln("Frame :");
-        $output->writeln("  Symbol          : <info>" . $frame->symbol. "</info>");
-        $output->writeln("  Name            : <info>" . $frame->name. "</info>");
-        $output->writeln("  Description     : <info>" . $frame->description. "</info>");
-        $output->writeln("  Condition       : <info>" . $frame->condition. "</info>");
-        $output->writeln("  Module Slots    : <info>" . $frame->moduleSlots. "</info>");
-        $output->writeln("  Mounting Points : <info>" . $frame->mountingPoints. "</info>");
-        $output->writeln("  Fuel Capacity   : <info>" . $frame->fuelCapacity. "</info>");
-        $output->writeln("  Req. Power      : <info>" . $frame->requirementsPower. "</info>");
-        $output->writeln("  Req. Crew       : <info>" . $frame->requirementsCrew. "</info>");
+        $output->writeln("  Symbol          : <info>" . $frame->symbol . "</info>");
+        $output->writeln("  Name            : <info>" . $frame->name . "</info>");
+        $output->writeln("  Description     : <info>" . $frame->description . "</info>");
+        $output->writeln("  Condition       : <info>" . $frame->condition . "</info>");
+        $output->writeln("  Module Slots    : <info>" . $frame->moduleSlots . "</info>");
+        $output->writeln("  Mounting Points : <info>" . $frame->mountingPoints . "</info>");
+        $output->writeln("  Fuel Capacity   : <info>" . $frame->fuelCapacity . "</info>");
+        $output->writeln("  Req. Power      : <info>" . $frame->requirementsPower . "</info>");
+        $output->writeln("  Req. Crew       : <info>" . $frame->requirementsCrew . "</info>");
         $output->writeln("");
     }
 
     protected function displayReactor(OutputInterface $output, Reactor $reactor)
     {
         $output->writeln("Reactor :");
-        $output->writeln("  Symbol       : <info>" . $reactor->symbol. "</info>");
-        $output->writeln("  Name         : <info>" . $reactor->name. "</info>");
-        $output->writeln("  Description  : <info>" . $reactor->description. "</info>");
-        $output->writeln("  Condition    : <info>" . $reactor->condition. "</info>");
-        $output->writeln("  PowerOutput  : <info>" . $reactor->powerOutput. "</info>");
-        $output->writeln("  Req. Power   : <info>" . $reactor->requirementsPower. "</info>");
-        $output->writeln("  Req. Crew    : <info>" . $reactor->requirementsCrew. "</info>");
-        $output->writeln("  Req. Slots   : <info>" . $reactor->requirementsSlots. "</info>");
+        $output->writeln("  Symbol       : <info>" . $reactor->symbol . "</info>");
+        $output->writeln("  Name         : <info>" . $reactor->name . "</info>");
+        $output->writeln("  Description  : <info>" . $reactor->description . "</info>");
+        $output->writeln("  Condition    : <info>" . $reactor->condition . "</info>");
+        $output->writeln("  PowerOutput  : <info>" . $reactor->powerOutput . "</info>");
+        $output->writeln("  Req. Power   : <info>" . $reactor->requirementsPower . "</info>");
+        $output->writeln("  Req. Crew    : <info>" . $reactor->requirementsCrew . "</info>");
+        $output->writeln("  Req. Slots   : <info>" . $reactor->requirementsSlots . "</info>");
         $output->writeln("");
     }
 
@@ -212,9 +212,9 @@ class DetailsCommand extends BaseCommand
     protected function displayRegistration(OutputInterface $output, Ship $ship)
     {
         $output->writeln("Registration :");
-        $output->writeln("  Name       : <info>" . $ship->registrationName. "</info>");
-        $output->writeln("  Faction    : <info>" . $ship->registrationFaction. "</info>");
-        $output->writeln("  Role       : <info>" . $ship->registrationRole. "</info>");
+        $output->writeln("  Name       : <info>" . $ship->registrationName . "</info>");
+        $output->writeln("  Faction    : <info>" . $ship->registrationFaction . "</info>");
+        $output->writeln("  Role       : <info>" . $ship->registrationRole . "</info>");
         $output->writeln("");
     }
 }

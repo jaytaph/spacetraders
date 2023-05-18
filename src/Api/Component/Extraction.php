@@ -2,7 +2,8 @@
 
 namespace Jaytaph\Spacetraders\Api\Component;
 
-class Extraction {
+class Extraction
+{
     public string $shipSymbol;
     public string $yieldSymbol;
     public int $yieldUnits;
