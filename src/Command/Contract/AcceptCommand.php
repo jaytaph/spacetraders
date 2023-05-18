@@ -31,7 +31,7 @@ class AcceptCommand extends Command
         $response = $api->execute($command);
         $result = AcceptResponse::fromJson($response->data);
 
-        $output->writeln("Contract <info>{$result->contract->id} accepted by agent {$result->agent->callsign}</info>");
+        $output->writeln("Contract <info>{$result->contract->id}</info> accepted by agent <info>{$result->agent->callsign}</info>");
 
         return Command::SUCCESS;
     }

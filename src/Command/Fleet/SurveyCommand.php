@@ -3,23 +3,22 @@
 namespace Jaytaph\Spacetraders\Command\Fleet;
 
 use Jaytaph\Spacetraders\Api\Api;
-use Jaytaph\Spacetraders\Api\Command\Fleet\NavDetailCommand;
-use Jaytaph\Spacetraders\Api\Component\Nav;
-use Jaytaph\Spacetraders\Api\Response\Fleet\NavDetailResponse;
+use Jaytaph\Spacetraders\Api\Response\Fleet\SurveyResponse;
+use Jaytaph\Spacetraders\Api\Command\Fleet\SurveyCommand as ApiSurveyCommand;
 use Jaytaph\Spacetraders\OutputTables;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class NavDetailsCommand extends Command
+class SurveyCommand extends Command
 {
-    protected static $defaultName = 'fleet:details:nav';
+    protected static $defaultName = 'fleet:survey';
 
     protected function configure()
     {
-        $this->setDescription('Display ship nav details')
-            ->setHelp('Display ship nav details')
+        $this->setDescription('Create a survey')
+            ->setHelp('Create a survey')
             ->setDefinition([
                 new InputArgument('ship', InputArgument::REQUIRED, 'The ship symbol'),
             ])
@@ -29,14 +28,11 @@ class NavDetailsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $api = new Api();
-        $command = new NavDetailCommand(strval($input->getArgument('ship')));
+        $command = new ApiSurveyCommand(strval($input->getArgument('ship')));
         $response = $api->execute($command);
-        $result = NavDetailResponse::fromJson($response->data);
+        $result = SurveyResponse::fromJson($response->data);
 
-        $output->writeln("Ship Nav Details");
-        $output->writeln("=================");
-
-        OutputTables::displayNavigation($output, $result->nav);
+        OutputTables::displaySurveys($output, $result->surveys);
 
         return Command::SUCCESS;
     }

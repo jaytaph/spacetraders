@@ -36,9 +36,8 @@ class NavigateCommand extends Command
         $response = $api->execute($command);
         $result = NavigateResponse::fromJson($response->data);
 
-        $helper = new OutputTables($output);
-        $helper->outputNavigationTable($result->nav);
-        $helper->outputFuelTable($result->fuel);
+        OutputTables::displayNavigation($output, $result->nav);
+        OutputTables::displayFuel($output, $result->fuel);
 
         return Command::SUCCESS;
     }

@@ -46,14 +46,8 @@ class CargoDetailsCommand extends Command
         $output->writeln("Ship Cargo Details");
         $output->writeln("=================");
 
-        $this->displayCargo($output, $result->cargo);
+        OutputTables::displayCargo($output, $result->cargo);
 
         return Command::SUCCESS;
-    }
-
-    protected function displayCargo(OutputInterface $output, Cargo $cargo)
-    {
-        $helper = new OutputTables($output);
-        $helper->outputCargoTable($cargo);
     }
 }

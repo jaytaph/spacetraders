@@ -50,8 +50,7 @@ class ExtractCommand extends Command
         $output->writeln("Cargo Details");
         $output->writeln("=============");
 
-        $helper = new OutputTables($output);
-        $helper->outputCargoTable($result->cargo);
+        OutputTables::displayCargo($output, $result->cargo);
 
         return Command::SUCCESS;
     }

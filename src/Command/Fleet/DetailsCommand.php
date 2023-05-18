@@ -4,11 +4,8 @@ namespace Jaytaph\Spacetraders\Command\Fleet;
 
 use Jaytaph\Spacetraders\Api\Api;
 use Jaytaph\Spacetraders\Api\Command\Fleet\DetailCommand;
-use Jaytaph\Spacetraders\Api\Component\Cargo;
 use Jaytaph\Spacetraders\Api\Component\Crew;
 use Jaytaph\Spacetraders\Api\Component\Frame;
-use Jaytaph\Spacetraders\Api\Component\Fuel;
-use Jaytaph\Spacetraders\Api\Component\Nav;
 use Jaytaph\Spacetraders\Api\Component\Reactor;
 use Jaytaph\Spacetraders\Api\Component\Ship;
 use Jaytaph\Spacetraders\Api\Response\Fleet\DetailResponse;
@@ -74,7 +71,7 @@ class DetailsCommand extends Command
             $this->displayRegistration($output, $result->ship);
         }
         if ($this->check($input, 'navigation')) {
-            $this->displayNavigation($output, $result->ship->nav);
+            OutputTables::displayNavigation($output, $result->ship->nav);
         }
         if ($this->check($input, 'crew')) {
             $this->displayCrew($output, $result->ship->crew);
@@ -92,19 +89,13 @@ class DetailsCommand extends Command
             $this->displayMounts($output, $result->ship->mounts);
         }
         if ($this->check($input, 'cargo')) {
-            $this->displayCargo($output, $result->ship->cargo);
+            OutputTables::displayCargo($output, $result->ship->cargo);
         }
         if ($this->check($input, 'fuel')) {
-            $this->displayFuel($output, $result->ship->fuel);
+            OutputTables::displayFuel($output, $result->ship->fuel);
         }
 
         return Command::SUCCESS;
-    }
-
-    protected function displayNavigation(OutputInterface $output, Nav $nav)
-    {
-        $helper = new OutputTables($output);
-        $helper->outputNavigationTable($nav);
     }
 
     protected function displayCrew(OutputInterface $output, Crew $crew)
@@ -212,40 +203,6 @@ class DetailsCommand extends Command
         }
 
         $table->setVertical();
-        $table->render();
-
-        $output->writeln("");
-    }
-
-    protected function displayFuel(OutputInterface $output, Fuel $fuel)
-    {
-        $helper = new OutputTables($output);
-        $helper->outputFuelTable($fuel);
-    }
-
-    protected function displayCargo(OutputInterface $output, Cargo $cargo)
-    {
-        $output->writeln("Cargo :");
-        $output->writeln("  Capacity : <info>" . $cargo->capacity. "</info>");
-        $output->writeln("  Units    : <info>" . $cargo->units. "</info>");
-
-        $table = new Table($output);
-        $table->setHeaders([
-            'Symbol',
-            'Name',
-            'Description',
-            'Units',
-        ]);
-
-        foreach ($cargo->inventory as $inventory) {
-            $table->addRow([
-                $inventory->symbol,
-                $inventory->name,
-                wordwrap($inventory->description),
-                $inventory->units,
-            ]);
-        }
-
         $table->render();
 
         $output->writeln("");

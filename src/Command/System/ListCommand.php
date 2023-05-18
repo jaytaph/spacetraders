@@ -14,7 +14,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ListCommand extends Command
 {
-    protected static $defaultName = 'systems:list';
+    protected static $defaultName = 'system:list';
 
     protected function configure()
     {

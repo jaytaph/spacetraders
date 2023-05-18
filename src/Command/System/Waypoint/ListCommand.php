@@ -5,6 +5,7 @@ namespace Jaytaph\Spacetraders\Command\System\Waypoint;
 use Jaytaph\Spacetraders\Api\Api;
 use Jaytaph\Spacetraders\Api\Response\System\Waypoint\ListResponse;
 use Jaytaph\Spacetraders\Api\Command\System\Waypoint\ListCommand as ApiListCommand;
+use Jaytaph\Spacetraders\OutputTables;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
@@ -39,35 +40,7 @@ class ListCommand extends Command
         $response = $api->execute($command);
         $result = ListResponse::fromJson($response->data, $response->meta);
 
-        $table = new Table($output);
-        $table->setHeaders([
-            'Symbol',
-            'Type',
-            'Coord',
-            'Num. orbitals',
-            'Faction',
-            'Traits',
-            'Chart'
-        ]);
-
-        foreach ($result->waypoints as $waypoint) {
-            $traits = [];
-            foreach ($waypoint->traits as $trait) {
-                $traits[] = $trait->name;
-            }
-
-            $table->addRow([
-                $waypoint->symbol,
-                $waypoint->type,
-                "{$waypoint->x},{$waypoint->y}",
-                count($waypoint->orbitals),
-                $waypoint->faction,
-                join(", ", $traits),
-                $waypoint->chart->waypointSymbol,
-            ]);
-        }
-
-        $table->render();
+        OutputTables::displayWaypoints($output, $result->waypoints);
 
         return Command::SUCCESS;
     }
