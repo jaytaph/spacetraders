@@ -16,7 +16,7 @@ class JumpgateCommand extends BaseCommand
 {
     protected static $defaultName = 'waypoint:jumpgate';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Display waypoint jumpgate details')
             ->setHelp('Display waypoint jumpgate details')
@@ -47,7 +47,7 @@ class JumpgateCommand extends BaseCommand
         return Command::SUCCESS;
     }
 
-    protected function printConnections(OutputInterface $output, array $connections)
+    protected function printConnections(OutputInterface $output, array $connections): void
     {
         $output->writeln("Connections:");
 

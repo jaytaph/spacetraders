@@ -17,7 +17,7 @@ class ListCommand extends BaseCommand
 {
     protected static $defaultName = 'system:list';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Display systems')
             ->setHelp('Display systems')

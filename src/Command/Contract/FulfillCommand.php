@@ -2,7 +2,6 @@
 
 namespace Jaytaph\Spacetraders\Command\Contract;
 
-use Jaytaph\Spacetraders\Api\Api;
 use Jaytaph\Spacetraders\Api\Command\Contract\FulfillCommand as ApiFulfillCommand;
 use Jaytaph\Spacetraders\Api\Response\Contract\FulfillResponse;
 use Jaytaph\Spacetraders\Command\BaseCommand;
@@ -15,7 +14,7 @@ class FulfillCommand extends BaseCommand
 {
     protected static $defaultName = 'contract:fulfill';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Fulfill a contract')
             ->setHelp('Fulfill a contract')

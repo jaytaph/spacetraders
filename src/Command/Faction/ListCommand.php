@@ -17,7 +17,7 @@ class ListCommand extends BaseCommand
 {
     protected static $defaultName = 'faction:list';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Display factions')
             ->setHelp('Display factions')

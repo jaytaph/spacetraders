@@ -15,7 +15,7 @@ class DockCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:dock';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Move ship to dock')
             ->setHelp('Move ship to dock')

@@ -16,7 +16,7 @@ class DeliverCommand extends BaseCommand
 {
     protected static $defaultName = 'contract:deliver';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Deliver a contract')
             ->setHelp('Deliver a contract')

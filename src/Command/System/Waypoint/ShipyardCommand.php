@@ -17,7 +17,7 @@ class ShipyardCommand extends BaseCommand
 {
     protected static $defaultName = 'waypoint:shipyard';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Display waypoint shipyard details')
             ->setHelp('Display waypoint shipyard details')
@@ -54,7 +54,7 @@ class ShipyardCommand extends BaseCommand
         return Command::SUCCESS;
     }
 
-    protected function printTransactions(OutputInterface $output, array $transactions)
+    protected function printTransactions(OutputInterface $output, array $transactions): void
     {
         $output->writeln("Transactions:");
 
@@ -84,7 +84,7 @@ class ShipyardCommand extends BaseCommand
         $output->writeln("");
     }
 
-    protected function printShips(OutputInterface $output, array $ships)
+    protected function printShips(OutputInterface $output, array $ships): void
     {
         $output->writeln("Ships:");
 

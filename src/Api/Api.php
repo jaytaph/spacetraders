@@ -28,11 +28,6 @@ class Api
         $this->auth = $token;
     }
 
-    /**
-     * @param Command $command
-     * @return mixed[]
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
     public function execute(Command $command): ApiResponse
     {
         $options = [

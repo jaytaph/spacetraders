@@ -24,7 +24,7 @@ class OutputTables
      * @param Waypoint[] $waypoints
      * @return void
      */
-    public static function displayWaypoints(OutputInterface $output, array $waypoints)
+    public static function displayWaypoints(OutputInterface $output, array $waypoints): void
     {
         $table = new Table($output);
         $table->setHeaders([
@@ -50,7 +50,7 @@ class OutputTables
                 count($waypoint->orbitals),
                 $waypoint->faction,
                 join(", ", $traits),
-                $waypoint->chart->waypointSymbol,
+                $waypoint->chart?->waypointSymbol,
             ]);
         }
 
@@ -63,7 +63,7 @@ class OutputTables
      * @param Survey[] $surveys
      * @return void
      */
-    public static function displaySurveys(OutputInterface $output, array $surveys)
+    public static function displaySurveys(OutputInterface $output, array $surveys): void
     {
         $table = new Table($output);
         $table->setHeaders([
@@ -88,7 +88,7 @@ class OutputTables
         $output->writeln("");
     }
 
-    public static function displayNavigation(OutputInterface $output, Nav $nav)
+    public static function displayNavigation(OutputInterface $output, Nav $nav): void
     {
         $output->writeln("System     : <info>" . $nav->system . "</info>");
         $output->writeln("Waypoint   : <info>" . $nav->waypoint . "</info>");
@@ -110,7 +110,7 @@ class OutputTables
         $output->writeln("");
     }
 
-    public static function displayFuel(OutputInterface $output, Fuel $fuel)
+    public static function displayFuel(OutputInterface $output, Fuel $fuel): void
     {
         $output->writeln("Fuel :");
         $output->writeln("  Current : <info>" . $fuel->current . "</info>");
@@ -120,7 +120,7 @@ class OutputTables
         $output->writeln("");
     }
 
-    public static function displayCargo(OutputInterface $output, Cargo $cargo)
+    public static function displayCargo(OutputInterface $output, Cargo $cargo): void
     {
         $output->writeln("Cargo :");
         $output->writeln("  Capacity : <info>" . $cargo->capacity . "</info>");

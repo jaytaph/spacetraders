@@ -16,7 +16,7 @@ class ExtractCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:extract';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Extract minirals')
             ->setHelp('Extract minirals')

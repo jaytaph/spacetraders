@@ -15,7 +15,7 @@ class DetailsCommand extends BaseCommand
 {
     protected static $defaultName = 'contract:details';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Display contract details')
             ->setHelp('Display contract details')

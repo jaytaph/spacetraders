@@ -16,7 +16,7 @@ class DetailsCommand extends BaseCommand
 {
     protected static $defaultName = 'waypoint:details';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Display waypoint details')
             ->setHelp('Display waypoint details')
@@ -44,7 +44,9 @@ class DetailsCommand extends BaseCommand
         $output->writeln("Type    : <info>" . $result->waypoint->type . "</info>");
         $output->writeln("Coords  : <info>" . $result->waypoint->x . "," . $result->waypoint->y . "</info>");
         $output->writeln("Faction : <info>" . $result->waypoint->faction . "</info>");
-        $output->writeln("Chart   : <info>" . $result->waypoint->chart->waypointSymbol . " (" . $result->waypoint->chart->submittedBy . ")</info>");
+        if ($result->waypoint->chart) {
+            $output->writeln("Chart   : <info>".$result->waypoint->chart->waypointSymbol." (".$result->waypoint->chart->submittedBy.")</info>");
+        }
 
         $orbitals = [];
         foreach ($result->waypoint->orbitals as $orbital) {

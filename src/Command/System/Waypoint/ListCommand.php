@@ -18,7 +18,7 @@ class ListCommand extends BaseCommand
 {
     protected static $defaultName = 'waypoint:list';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Display systems')
             ->setHelp('Display systems')

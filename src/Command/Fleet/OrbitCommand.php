@@ -15,7 +15,7 @@ class OrbitCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:orbit';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Move ship to orbit')
             ->setHelp('Move ship to orbit')

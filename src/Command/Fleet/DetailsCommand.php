@@ -22,7 +22,7 @@ class DetailsCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:details';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Display ship details')
             ->setHelp('Display ship details')
@@ -99,7 +99,7 @@ class DetailsCommand extends BaseCommand
         return Command::SUCCESS;
     }
 
-    protected function displayCrew(OutputInterface $output, Crew $crew)
+    protected function displayCrew(OutputInterface $output, Crew $crew): void
     {
         $output->writeln("Crew :");
         $output->writeln("  Current  : <info>" . $crew->current . "</info>");
@@ -111,7 +111,7 @@ class DetailsCommand extends BaseCommand
         $output->writeln("");
     }
 
-    protected function displayFrame(OutputInterface $output, Frame $frame)
+    protected function displayFrame(OutputInterface $output, Frame $frame): void
     {
         $output->writeln("Frame :");
         $output->writeln("  Symbol          : <info>" . $frame->symbol . "</info>");
@@ -126,7 +126,7 @@ class DetailsCommand extends BaseCommand
         $output->writeln("");
     }
 
-    protected function displayReactor(OutputInterface $output, Reactor $reactor)
+    protected function displayReactor(OutputInterface $output, Reactor $reactor): void
     {
         $output->writeln("Reactor :");
         $output->writeln("  Symbol       : <info>" . $reactor->symbol . "</info>");
@@ -140,7 +140,7 @@ class DetailsCommand extends BaseCommand
         $output->writeln("");
     }
 
-    protected function displayModules(OutputInterface $output, array $modules)
+    protected function displayModules(OutputInterface $output, array $modules): void
     {
         $output->writeln("Modules :");
 
@@ -174,7 +174,7 @@ class DetailsCommand extends BaseCommand
         $output->writeln("");
     }
 
-    protected function displayMounts(OutputInterface $output, array $mounts)
+    protected function displayMounts(OutputInterface $output, array $mounts): void
     {
         $output->writeln("Mounts :");
 
@@ -209,7 +209,7 @@ class DetailsCommand extends BaseCommand
         $output->writeln("");
     }
 
-    protected function displayRegistration(OutputInterface $output, Ship $ship)
+    protected function displayRegistration(OutputInterface $output, Ship $ship): void
     {
         $output->writeln("Registration :");
         $output->writeln("  Name       : <info>" . $ship->registrationName . "</info>");

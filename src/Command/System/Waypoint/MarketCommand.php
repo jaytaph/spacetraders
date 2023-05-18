@@ -24,7 +24,7 @@ class MarketCommand extends BaseCommand
     protected const SHOW_TRANSACTIONS = 8;
     protected const SHOW_TRADEGOODS = 16;
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Display waypoint market details')
             ->setHelp('Display waypoint market details')
@@ -95,7 +95,7 @@ class MarketCommand extends BaseCommand
         return Command::SUCCESS;
     }
 
-    protected function printSection(OutputInterface $output, string $header, array $items)
+    protected function printSection(OutputInterface $output, string $header, array $items): void
     {
         $output->writeln("{$header}:");
 
@@ -118,7 +118,7 @@ class MarketCommand extends BaseCommand
         $output->writeln("");
     }
 
-    protected function printTransactions(OutputInterface $output, array $transactions)
+    protected function printTransactions(OutputInterface $output, array $transactions): void
     {
         $output->writeln("Transactions:");
 
@@ -156,7 +156,7 @@ class MarketCommand extends BaseCommand
         $output->writeln("");
     }
 
-    protected function printTradeGoods(OutputInterface $output, array $tradegoods)
+    protected function printTradeGoods(OutputInterface $output, array $tradegoods): void
     {
         $output->writeln("Tradegoods:");
 

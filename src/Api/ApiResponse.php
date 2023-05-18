@@ -2,7 +2,7 @@
 
 namespace Jaytaph\Spacetraders\Api;
 
-use GuzzleHttp\Psr7\Response;
+use Psr\Http\Message\ResponseInterface;
 
 class ApiResponse
 {
@@ -11,9 +11,9 @@ class ApiResponse
     public array $meta;
     public array $response;
 
-    public static function createFromResponse(Response $response): ApiResponse
+    public static function createFromResponse(ResponseInterface $response): ApiResponse
     {
-        $content = $response->getBody()->getContents() ?? "";
+        $content = $response->getBody()->getContents();
         return new self($response->getStatusCode(), $content);
     }
 

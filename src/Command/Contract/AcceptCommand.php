@@ -15,7 +15,7 @@ class AcceptCommand extends BaseCommand
 {
     protected static $defaultName = 'contract:accept';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Accept an available contract')
             ->setHelp('Accept an available contract')

@@ -17,7 +17,7 @@ class RefineCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:refine';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Refine materials')
             ->setHelp('Refine materials')

@@ -14,7 +14,7 @@ class DetailCommand extends BaseCommand
 {
     protected static $defaultName = 'agent:details';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Display info about the current agent')
             ->setHelp('Display info about the current agent')

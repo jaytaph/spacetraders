@@ -17,7 +17,7 @@ class CooldownCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:cooldown';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Get ship cooldown status')
             ->setHelp('Get ship cooldown status')

@@ -27,7 +27,7 @@ class CargoDetailsCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:details:cargo';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Display ship cargo details')
             ->setHelp('Display ship cargo details')

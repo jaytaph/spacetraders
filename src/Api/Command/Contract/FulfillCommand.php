@@ -8,6 +8,11 @@ class FulfillCommand implements Command
 {
     protected string $id;
 
+    public function __construct(string $id)
+    {
+        $this->id = $id;
+    }
+
     public function getMethod(): string
     {
         return 'POST';

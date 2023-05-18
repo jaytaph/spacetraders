@@ -14,7 +14,9 @@ class BaseCommand extends Command
 
         if ($useToken) {
             $token = file_get_contents('.token');
-            $api->setToken($token);
+            if ($token) {
+                $api->setToken($token);
+            }
         }
 
         return $api;

@@ -17,7 +17,7 @@ class ChartCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:chart';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Chart waypoints')
             ->setHelp('Chart waypoints')

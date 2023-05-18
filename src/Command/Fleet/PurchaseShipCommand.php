@@ -15,7 +15,7 @@ class PurchaseShipCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:purchase:ship';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Purchase a ship')
             ->setHelp('Purchase a ship')

@@ -17,7 +17,7 @@ class ListCommand extends BaseCommand
 {
     protected static $defaultName = 'contract:list';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Display contracts')
             ->setHelp('Display contracts')

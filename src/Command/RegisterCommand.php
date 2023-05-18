@@ -15,7 +15,7 @@ class RegisterCommand extends BaseCommand
 {
     protected static $defaultName = 'register';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Register a new user')
             ->setHelp('Register a new user')

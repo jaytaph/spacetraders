@@ -16,7 +16,7 @@ class NavigateCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:navigate';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Navigate ship to a different waypoint')
             ->setHelp('Navigate ship to a different waypoint')

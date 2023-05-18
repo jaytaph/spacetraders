@@ -15,7 +15,7 @@ class DetailsCommand extends BaseCommand
 {
     protected static $defaultName = 'faction:details';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Display faction details')
             ->setHelp('Display faction details')

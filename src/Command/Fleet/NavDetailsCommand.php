@@ -17,7 +17,7 @@ class NavDetailsCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:details:nav';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Display ship nav details')
             ->setHelp('Display ship nav details')

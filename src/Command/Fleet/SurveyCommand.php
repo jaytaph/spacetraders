@@ -16,7 +16,7 @@ class SurveyCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:survey';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Create a survey')
             ->setHelp('Create a survey')

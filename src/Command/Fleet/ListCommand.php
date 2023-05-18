@@ -16,7 +16,7 @@ class ListCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:list';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Display ships in fleet')
             ->setHelp('Display ships in fleet')
