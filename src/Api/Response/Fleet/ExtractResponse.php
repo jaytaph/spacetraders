@@ -12,14 +12,14 @@ use Jaytaph\Spacetraders\Api\Component\ShipTransaction;
 class ExtractResponse
 {
     public Cooldown $cooldown;
-    public Extraction $extration;
+    public Extraction $extraction;
     public Cargo $cargo;
 
     public static function fromJson(array $data): self
     {
         $result = new self();
         $result->cooldown = Cooldown::fromJson($data['cooldown']);
-        $result->extration = Extraction::fromJson($data['extraction']);
+        $result->extraction = Extraction::fromJson($data['extraction']);
         $result->cargo = Cargo::fromJson($data['cargo']);
 
         return $result;
