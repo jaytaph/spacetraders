@@ -19,7 +19,7 @@ class Reactor
         $reactor->symbol = $data['symbol'];
         $reactor->name = $data['name'];
         $reactor->description = $data['description'];
-        $reactor->condition = $data['condition'];
+        $reactor->condition = $data['condition'] ?? 0;
         $reactor->powerOutput = $data['powerOutput'];
         $reactor->requirementsCrew = $data['requirements']['crew'] ?? 0;
         $reactor->requirementsSlots = $data['requirements']['slots'] ?? 0;

@@ -20,7 +20,7 @@ class Mount
         $mount->symbol = $data['symbol'];
         $mount->name = $data['name'];
         $mount->description = $data['description'];
-        $mount->strength = $data['strength'];
+        $mount->strength = $data['strength'] ?? 0;
         $mount->requirementsCrew = $data['requirements']['crew'] ?? 0;
         $mount->requirementsPower = $data['requirements']['power'] ?? 0;
         $mount->requirementsSlots = $data['requirements']['slots'] ?? 0;

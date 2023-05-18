@@ -27,7 +27,7 @@ class Api
     {
         $this->auth = $token;
     }
-    
+
     public function execute(Command $command): ApiResponse
     {
         $options = [

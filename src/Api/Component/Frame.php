@@ -23,7 +23,7 @@ class Frame
         $frame->moduleSlots = $data['moduleSlots'];
         $frame->mountingPoints = $data['mountingPoints'];
         $frame->fuelCapacity = $data['fuelCapacity'];
-        $frame->condition = $data['condition'];
+        $frame->condition = $data['condition'] ?? 0;
         $frame->requirementsPower = $data['requirements']['power'];
         $frame->requirementsCrew = $data['requirements']['crew'];
 

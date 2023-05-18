@@ -92,7 +92,6 @@ class ShipyardCommand extends BaseCommand
         $table->setHeaders([
             'Type',
             'Name',
-            'Description',
             'Price',
             'Frame',
             'Reactor',
@@ -121,8 +120,7 @@ class ShipyardCommand extends BaseCommand
             $table->addRow([
                 $ship->type,
                 $ship->name,
-                wordwrap($ship->description),
-                $ship->price,
+                $ship->purchasePrice,
                 $ship->frame->name,
                 $ship->reactor->name,
                 $ship->engine->name,
@@ -131,6 +129,7 @@ class ShipyardCommand extends BaseCommand
             ]);
         }
 
+        $table->setVertical(true);
         $table->render();
         $output->writeln("");
     }

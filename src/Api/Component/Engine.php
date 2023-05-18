@@ -18,7 +18,7 @@ class Engine
         $engine->symbol = $data['symbol'];
         $engine->name = $data['name'];
         $engine->description = $data['description'];
-        $engine->condition = $data['condition'];
+        $engine->condition = $data['condition'] ?? 0;
         $engine->speed = $data['speed'];
         $engine->requirementsPower = $data['requirements']['power'];
         $engine->requirementsCrew = $data['requirements']['crew'];
