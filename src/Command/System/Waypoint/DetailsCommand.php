@@ -45,7 +45,11 @@ class DetailsCommand extends BaseCommand
         $output->writeln("Coords  : <info>" . $result->waypoint->x . "," . $result->waypoint->y . "</info>");
         $output->writeln("Faction : <info>" . $result->waypoint->faction . "</info>");
         if ($result->waypoint->chart) {
-            $output->writeln("Chart   : <info>".$result->waypoint->chart->waypointSymbol." (".$result->waypoint->chart->submittedBy.")</info>");
+            $output->writeln(
+                "Chart   : <info>" .
+                $result->waypoint->chart->waypointSymbol .
+                " (" . $result->waypoint->chart->submittedBy . ")</info>"
+            );
         }
 
         $orbitals = [];
