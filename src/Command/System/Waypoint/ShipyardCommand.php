@@ -5,6 +5,7 @@ namespace Jaytaph\Spacetraders\Command\System\Waypoint;
 use Jaytaph\Spacetraders\Api\Api;
 use Jaytaph\Spacetraders\Api\Command\System\Waypoint\ShipyardCommand as ApiShipyardCommand;
 use Jaytaph\Spacetraders\Api\Response\System\Waypoint\ShipyardResponse;
+use Jaytaph\Spacetraders\Command\BaseCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Helper\TableStyle;
@@ -12,7 +13,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ShipyardCommand extends Command
+class ShipyardCommand extends BaseCommand
 {
     protected static $defaultName = 'waypoint:shipyard';
 
@@ -29,7 +30,7 @@ class ShipyardCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $api = new Api();
+        $api = $this->getApi();
         $command = new ApiShipyardCommand(
             strval($input->getArgument('system')),
             strval($input->getArgument('waypoint')),

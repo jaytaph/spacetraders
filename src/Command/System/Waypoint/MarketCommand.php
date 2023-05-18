@@ -5,6 +5,7 @@ namespace Jaytaph\Spacetraders\Command\System\Waypoint;
 use Jaytaph\Spacetraders\Api\Api;
 use Jaytaph\Spacetraders\Api\Command\System\Waypoint\MarketCommand as ApiMarketCommand;
 use Jaytaph\Spacetraders\Api\Response\System\Waypoint\MarketResponse;
+use Jaytaph\Spacetraders\Command\BaseCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Helper\TableStyle;
@@ -13,7 +14,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class MarketCommand extends Command
+class MarketCommand extends BaseCommand
 {
     protected static $defaultName = 'waypoint:market';
 
@@ -62,7 +63,7 @@ class MarketCommand extends Command
         }
 
 
-        $api = new Api();
+        $api = $this->getApi();
         $command = new ApiMarketCommand(
             strval($input->getArgument('system')),
             strval($input->getArgument('waypoint')),

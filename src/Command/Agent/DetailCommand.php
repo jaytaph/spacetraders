@@ -5,11 +5,12 @@ namespace Jaytaph\Spacetraders\Command\Agent;
 use Jaytaph\Spacetraders\Api\Api;
 use Jaytaph\Spacetraders\Api\Command\Agent\DetailsCommand;
 use Jaytaph\Spacetraders\Api\Response\Agent\Response;
+use Jaytaph\Spacetraders\Command\BaseCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class DetailCommand extends Command
+class DetailCommand extends BaseCommand
 {
     protected static $defaultName = 'agent:details';
 
@@ -23,7 +24,7 @@ class DetailCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $api = new Api();
+        $api = $this->getApi();
         $command = new DetailsCommand();
         $response = $api->execute($command);
         $result = Response::fromJson($response->data);

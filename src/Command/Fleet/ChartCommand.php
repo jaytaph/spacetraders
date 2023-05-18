@@ -5,6 +5,7 @@ namespace Jaytaph\Spacetraders\Command\Fleet;
 use Jaytaph\Spacetraders\Api\Api;
 use Jaytaph\Spacetraders\Api\Response\Fleet\ChartResponse;
 use Jaytaph\Spacetraders\Api\Command\Fleet\ChartCommand as ApiChartCommand;
+use Jaytaph\Spacetraders\Command\BaseCommand;
 use Jaytaph\Spacetraders\OutputTables;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -12,7 +13,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ChartCommand extends Command
+class ChartCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:chart';
 
@@ -28,7 +29,7 @@ class ChartCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $api = new Api();
+        $api = $this->getApi();
         $command = new ApiChartCommand(strval($input->getArgument('ship')));
         $response = $api->execute($command);
         $result = ChartResponse::fromJson($response->data);

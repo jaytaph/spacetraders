@@ -14,6 +14,7 @@ use Jaytaph\Spacetraders\Api\Component\Reactor;
 use Jaytaph\Spacetraders\Api\Component\Ship;
 use Jaytaph\Spacetraders\Api\Response\Fleet\CargoDetailResponse;
 use Jaytaph\Spacetraders\Api\Response\Fleet\DetailResponse;
+use Jaytaph\Spacetraders\Command\BaseCommand;
 use Jaytaph\Spacetraders\OutputTables;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -22,7 +23,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class CargoDetailsCommand extends Command
+class CargoDetailsCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:details:cargo';
 
@@ -38,7 +39,7 @@ class CargoDetailsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $api = new Api();
+        $api = $this->getApi();
         $command = new CargoDetailCommand(strval($input->getArgument('ship')));
         $response = $api->execute($command);
         $result = CargoDetailResponse::fromJson($response->data);

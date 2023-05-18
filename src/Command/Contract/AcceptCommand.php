@@ -5,12 +5,13 @@ namespace Jaytaph\Spacetraders\Command\Contract;
 use Jaytaph\Spacetraders\Api\Api;
 use Jaytaph\Spacetraders\Api\Command\Contract\AcceptCommand as ApiAcceptCommand;
 use Jaytaph\Spacetraders\Api\Response\Contract\AcceptResponse;
+use Jaytaph\Spacetraders\Command\BaseCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class AcceptCommand extends Command
+class AcceptCommand extends BaseCommand
 {
     protected static $defaultName = 'contract:accept';
 
@@ -26,7 +27,7 @@ class AcceptCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $api = new Api();
+        $api = $this->getApi();
         $command = new ApiAcceptCommand(strval($input->getArgument('contract')));
         $response = $api->execute($command);
         $result = AcceptResponse::fromJson($response->data);

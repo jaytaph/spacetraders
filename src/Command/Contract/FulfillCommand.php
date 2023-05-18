@@ -5,12 +5,13 @@ namespace Jaytaph\Spacetraders\Command\Contract;
 use Jaytaph\Spacetraders\Api\Api;
 use Jaytaph\Spacetraders\Api\Command\Contract\FulfillCommand as ApiFulfillCommand;
 use Jaytaph\Spacetraders\Api\Response\Contract\FulfillResponse;
+use Jaytaph\Spacetraders\Command\BaseCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class FulfillCommand extends Command
+class FulfillCommand extends BaseCommand
 {
     protected static $defaultName = 'contract:fulfill';
 
@@ -26,7 +27,7 @@ class FulfillCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $api = new Api();
+        $api = $this->getApi();
         $command = new ApiFulfillCommand(strval($input->getArgument('contract')));
         $response = $api->execute($command);
         $result = FulfillResponse::fromJson($response->data);

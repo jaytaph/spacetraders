@@ -5,13 +5,14 @@ namespace Jaytaph\Spacetraders\Command\System\Waypoint;
 use Jaytaph\Spacetraders\Api\Api;
 use Jaytaph\Spacetraders\Api\Command\System\Waypoint\JumpgateCommand as ApiJumpgateCommand;
 use Jaytaph\Spacetraders\Api\Response\System\Waypoint\JumpgateResponse;
+use Jaytaph\Spacetraders\Command\BaseCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class JumpgateCommand extends Command
+class JumpgateCommand extends BaseCommand
 {
     protected static $defaultName = 'waypoint:jumpgate';
 
@@ -28,7 +29,7 @@ class JumpgateCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $api = new Api();
+        $api = $this->getApi();
         $command = new ApiJumpgateCommand(
             strval($input->getArgument('system')),
             strval($input->getArgument('waypoint')),

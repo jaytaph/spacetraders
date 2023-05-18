@@ -5,13 +5,14 @@ namespace Jaytaph\Spacetraders\Command\Fleet;
 use Jaytaph\Spacetraders\Api\Api;
 use Jaytaph\Spacetraders\Api\Response\Fleet\NavigateResponse;
 use Jaytaph\Spacetraders\Api\Command\Fleet\NavigateCommand as ApiNavigateCommand;
+use Jaytaph\Spacetraders\Command\BaseCommand;
 use Jaytaph\Spacetraders\OutputTables;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class NavigateCommand extends Command
+class NavigateCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:navigate';
 
@@ -28,7 +29,7 @@ class NavigateCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $api = new Api();
+        $api = $this->getApi();
         $command = new ApiNavigateCommand(
             strval($input->getArgument('ship')),
             strval($input->getArgument('waypoint'))

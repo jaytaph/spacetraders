@@ -5,12 +5,13 @@ namespace Jaytaph\Spacetraders\Command\Contract;
 use Jaytaph\Spacetraders\Api\Api;
 use Jaytaph\Spacetraders\Api\Command\Contract\DetailCommand;
 use Jaytaph\Spacetraders\Api\Response\Contract\DetailResponse;
+use Jaytaph\Spacetraders\Command\BaseCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class DetailsCommand extends Command
+class DetailsCommand extends BaseCommand
 {
     protected static $defaultName = 'contract:details';
 
@@ -26,7 +27,7 @@ class DetailsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $api = new Api();
+        $api = $this->getApi();
         $command = new DetailCommand(strval($input->getArgument('contract')));
         $response = $api->execute($command);
         $result = DetailResponse::fromJson($response->data);

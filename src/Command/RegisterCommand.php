@@ -11,7 +11,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class RegisterCommand extends Command
+class RegisterCommand extends BaseCommand
 {
     protected static $defaultName = 'register';
 
@@ -30,7 +30,7 @@ class RegisterCommand extends Command
     {
         $output->writeln('Registering a new user');
 
-        $api = new Api(retrieveToken: false);
+        $api = $this->getApi(useToken: false);
         $command = new ApiRegisterCommand($input->getArgument('callsign'), $input->getArgument('faction'));
         $response = $api->execute($command);
         $result = RegisterResponse::fromJson($response->data);

@@ -5,13 +5,14 @@ namespace Jaytaph\Spacetraders\Command\Fleet;
 use Jaytaph\Spacetraders\Api\Api;
 use Jaytaph\Spacetraders\Api\Response\Fleet\ExtractResponse;
 use Jaytaph\Spacetraders\Api\Command\Fleet\ExtractCommand as ApiExtractCommand;
+use Jaytaph\Spacetraders\Command\BaseCommand;
 use Jaytaph\Spacetraders\OutputTables;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ExtractCommand extends Command
+class ExtractCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:extract';
 
@@ -27,7 +28,7 @@ class ExtractCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $api = new Api();
+        $api = $this->getApi();
         $command = new ApiExtractCommand(strval($input->getArgument('ship')));
         $response = $api->execute($command);
         $result = ExtractResponse::fromJson($response->data);
@@ -40,16 +41,17 @@ class ExtractCommand extends Command
         $output->writeln("Total seconds   : <info>" . $result->cooldown->totalSeconds. "</info>");
         $output->writeln("Total remaining : <info>" . $result->cooldown->remainingSeconds. "</info>");
         $output->writeln("Expiration      : <info>" . $result->cooldown->expiration->format('Y-m-d H:i:s'). "</info>");
+        $output->writeln("");
 
         $output->writeln("Extraction Details");
         $output->writeln("==================");
         $output->writeln("Symbol : <info>" . $result->extration->shipSymbol . "</info>");
         $output->writeln("Yield  : <info>" . $result->extration->yieldSymbol . "</info>");
         $output->writeln("Units  : <info>" . $result->extration->yieldUnits . "</info>");
+        $output->writeln("");
 
         $output->writeln("Cargo Details");
         $output->writeln("=============");
-
         OutputTables::displayCargo($output, $result->cargo);
 
         return Command::SUCCESS;

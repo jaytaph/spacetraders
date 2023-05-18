@@ -12,14 +12,13 @@ class Api
     protected Client $client;
     protected ?string $auth = null;
 
-    public function __construct(?Client $client = null, bool $retrieveToken = true)
+    public function __construct(?Client $client = null, string $token = null)
     {
         $this->client = $client ?? new Client([
             'base_uri' => 'https://api.spacetraders.io',
         ]);
 
-        if ($retrieveToken && file_exists('.token')) {
-            $token = trim(file_get_contents('.token'));
+        if ($token) {
             $this->setToken($token);
         }
     }

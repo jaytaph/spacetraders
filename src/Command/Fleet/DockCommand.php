@@ -5,12 +5,13 @@ namespace Jaytaph\Spacetraders\Command\Fleet;
 use Jaytaph\Spacetraders\Api\Api;
 use Jaytaph\Spacetraders\Api\Response\Fleet\DockResponse;
 use Jaytaph\Spacetraders\Api\Command\Fleet\DockCommand as ApiDockCommand;
+use Jaytaph\Spacetraders\Command\BaseCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class DockCommand extends Command
+class DockCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:dock';
 
@@ -26,7 +27,7 @@ class DockCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $api = new Api();
+        $api = $this->getApi();
         $command = new ApiDockCommand(strval($input->getArgument('ship')));
         $response = $api->execute($command);
         $result = DockResponse::fromJson($response->data);

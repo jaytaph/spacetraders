@@ -5,6 +5,7 @@ namespace Jaytaph\Spacetraders\Command\Fleet;
 use Jaytaph\Spacetraders\Api\Api;
 use Jaytaph\Spacetraders\Api\Response\Fleet\RefineResponse;
 use Jaytaph\Spacetraders\Api\Command\Fleet\RefineCommand as ApiRefineCommand;
+use Jaytaph\Spacetraders\Command\BaseCommand;
 use Jaytaph\Spacetraders\OutputTables;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -12,7 +13,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class RefineCommand extends Command
+class RefineCommand extends BaseCommand
 {
     protected static $defaultName = 'fleet:refine';
 
@@ -29,7 +30,7 @@ class RefineCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $api = new Api();
+        $api = $this->getApi();
         $command = new ApiRefineCommand(
             strval($input->getArgument('ship')),
             strval($input->getArgument('produce'))
