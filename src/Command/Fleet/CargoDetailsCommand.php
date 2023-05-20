@@ -25,7 +25,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class CargoDetailsCommand extends BaseCommand
 {
-    protected static $defaultName = 'fleet:details:cargo';
+    protected static $defaultName = 'fleet:cargo:details';
 
     protected function configure(): void
     {

@@ -45,7 +45,7 @@ $app->addCommands(commands: [
     new Command\Fleet\NavigateCommand(),
 //    new Command\Fleet\PatchShipNavCommand(),
 //    new Command\Fleet\WarpCommand(),
-//    new Command\Fleet\SellCommand(),
+    new Command\Fleet\SellCommand(),
 //    new Command\Fleet\ScanSystemCommand(),
 //    new Command\Fleet\ScanWaypointsCommand(),
 //    new Command\Fleet\ScanShipsCommand(),
