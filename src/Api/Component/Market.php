@@ -31,10 +31,10 @@ class Market
         }, $data['exchange']);
         $result->transactions = array_map(function ($transaction) {
             return Transaction::fromJson($transaction);
-        }, $data['transactions']);
+        }, $data['transactions'] ?? []);
         $result->tradegoods = array_map(function ($tradegood) {
             return Tradegood::fromJson($tradegood);
-        }, $data['tradeGoods']);
+        }, $data['tradeGoods'] ?? []);
 
         return $result;
     }
