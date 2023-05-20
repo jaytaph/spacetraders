@@ -11,7 +11,10 @@ class CooldownResponse
     public static function fromJson(array $data): self
     {
         if (count($data) == 0) {
-            return new self();
+            $data['shipSymbol'] = '';
+            $data['totalSeconds'] = 0;
+            $data['remainingSeconds'] = 0;
+            $data['expiration'] = '01-01-1970 00:00:00Z';
         }
 
         $result = new self();
