@@ -40,7 +40,7 @@ $app->addCommands(commands: [
     new Command\Fleet\SurveyCommand(),
     new Command\Fleet\SurveyListCommand(),
     new Command\Fleet\ExtractCommand(),
-//    new Command\Fleet\JetisonCargoCommand(),
+    new Command\Fleet\JetisonCargoCommand(),
 //    new Command\Fleet\JumpCommand(),
     new Command\Fleet\NavigateCommand(),
 //    new Command\Fleet\PatchShipNavCommand(),
