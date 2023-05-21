@@ -13,15 +13,18 @@ class ApiResponse
     public array $response;         // Actual complete response (meta + data + any other information)
     public array $data;             // Information retrieved from json data
     public array $meta;             // Information retrieved from json meta
+    protected ResponseInterface $httpResponse;      // Actual response object from http client
 
     public static function createFromResponse(ResponseInterface $response): ApiResponse
     {
         $content = $response->getBody()->getContents();
-        return new self($response->getStatusCode(), $content);
+        return new self($response, $response->getStatusCode(), $content);
     }
 
-    public function __construct(int $statusCode, string $content)
+    public function __construct(ResponseInterface $response, int $statusCode, string $content)
     {
+        $this->httpResponse = $response;
+
         $this->success = $statusCode <= 399;
         $this->statusCode = $statusCode;
         $this->content = $content;
