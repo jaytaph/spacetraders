@@ -8,7 +8,7 @@ class SellCommand implements Command
 {
     protected string $ship;
     protected string $symbol;
-    protected string $units;
+    protected int $units;
 
     public function __construct(string $ship, string $symbol, int $units)
     {

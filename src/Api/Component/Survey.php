@@ -24,8 +24,12 @@ class Survey
         $response->expiration = new \DateTime($data['expiration']);
         $response->size = $data['size'];
 
-        // THis is needed because we need to be able to return the RAW data to the API
-        $response->rawSurvey = json_encode($data);
+        // This is needed because we need to be able to return the RAW data to the API
+        $raw = json_encode($data);
+        if (!$raw) {
+            $raw = '';
+        }
+        $response->rawSurvey = $raw;
 
         return $response;
     }

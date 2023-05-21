@@ -1,12 +1,6 @@
 # Spacetraders API for PHP
 
-Consists of an API to be used in your own application, and a commandline application.
-
-If using the API, only the src/Api namespace is interessting.
-
-I should split this probably.
-
-
+Consists of an API to be used in your own application
 
 Each api call consists of the following:
 
@@ -32,17 +26,4 @@ Each api call consists of the following:
   }
 ```
 
-## Commandline application
-
-The commandline application is located in the `bin` directory. It is a simple wrapper around the API. It is not very
-useful, but it can be used to test the API.
-
-The application is called `spacetraders`. It has a number of commands, each with their own options. The commands are:
-
-- `spacetraders register <callsign> <faction> --save` - Creates a new user. If `--save` is given, the token is saved in the `.token` file. 
-- `spacetraders fleet:list` - List all ships in your fleet
-- `spacetraders fleet:show <shipsymbol>` - Show details of a given ship
-- and many more.
-
-
-Please read the startraders.io getting started documentation to use the application. Most of it will make sense then.
+Please read the spacetraders.io getting started documentation to use the API. Most of it will make sense then.

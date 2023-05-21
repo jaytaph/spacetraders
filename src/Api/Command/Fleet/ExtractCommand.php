@@ -44,7 +44,7 @@ class ExtractCommand implements Command
                 'signature' => $this->survey->signature,
                 'symbol' => $this->survey->symbol,
                 'deposits' => $deposits,
-                'expiration' => $this->survey->expiration->format('Y-m-d\TH:i:s.v\Z'),
+                'expiration' => $this->survey->expiration->format('Y-m-d\TH:i:s\Z'),
                 'size' => $this->survey->size,
             ]
         ];
