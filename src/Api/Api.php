@@ -7,7 +7,7 @@ use Jaytaph\Spacetraders\Api\Command\Command;
 use Jaytaph\Spacetraders\Api\Exception\RateLimitException;
 use Jaytaph\Spacetraders\Api\Exception\SpacetradersException;
 
-class Api
+class Api implements ApiInterface
 {
     protected Client $client;
     protected ?string $auth = null;
