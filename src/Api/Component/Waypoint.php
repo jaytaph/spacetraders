@@ -4,6 +4,9 @@ namespace Jaytaph\Spacetraders\Api\Component;
 
 class Waypoint
 {
+    public const TRAIT_MARKETPLACE = 'MARKETPLACE';
+    public const TRAIT_SHIPYARD = 'SHIPYARD';
+
     public string $symbol;
     public string $type;
     public string $systemSymbol;
@@ -35,5 +38,16 @@ class Waypoint
         $result->faction = isset($data['faction']) ? $data['faction']['symbol'] : '';
 
         return $result;
+    }
+
+    public function hasTrait(string $trait): bool
+    {
+        foreach ($this->traits as $t) {
+            if ($t->name === $trait) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
