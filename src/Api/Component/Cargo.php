@@ -20,4 +20,14 @@ class Cargo
 
         return $result;
     }
+
+    public function getUnits(string $good): int
+    {
+        foreach ($this->inventory as $item) {
+            if ($item->symbol === $good) {
+                return $item->units;
+            }
+        }
+        return 0;
+    }
 }
