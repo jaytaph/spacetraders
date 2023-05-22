@@ -43,7 +43,7 @@ class Waypoint
     public function hasTrait(string $trait): bool
     {
         foreach ($this->traits as $t) {
-            if ($t->name === $trait) {
+            if ($t->symbol === $trait) {
                 return true;
             }
         }
