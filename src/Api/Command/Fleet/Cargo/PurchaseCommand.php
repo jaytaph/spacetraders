@@ -6,13 +6,15 @@ use Jaytaph\Spacetraders\Api\Command\Command;
 
 class PurchaseCommand implements Command
 {
-    protected string $shipType;
-    protected string $waypointSymbol;
+    public string $shipSymbol;
+    public string $symbol;
+    public int $units;
 
-    public function __construct(string $shipType, string $waypointSymbol)
+    public function __construct(string $shipSymbol, string $symbol, int $units)
     {
-        $this->shipType = $shipType;
-        $this->waypointSymbol = $waypointSymbol;
+        $this->shipSymbol = $shipSymbol;
+        $this->symbol = $symbol;
+        $this->units = $units;
     }
 
     public function getMethod(): string
@@ -22,14 +24,14 @@ class PurchaseCommand implements Command
 
     public function getUri(): string
     {
-        return '/v2/my/ships/';
+        return '/v2/my/ships/' . $this->shipSymbol . '/purchase';
     }
 
     public function getJson(): array
     {
         return [
-            'shipType' => $this->shipType,
-            'waypointSymbol' => $this->waypointSymbol,
+            'symbol' => $this->symbol,
+            'units' => $this->units,
         ];
     }
 }
