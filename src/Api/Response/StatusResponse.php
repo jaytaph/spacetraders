@@ -3,7 +3,7 @@
 namespace Jaytaph\Spacetraders\Api\Response;
 
 use Jaytaph\Spacetraders\Api\Component\Announcement;
-use Jaytaph\Spacetraders\Api\Component\Leaderboard;
+use Jaytaph\Spacetraders\Api\Component\Leaderboards;
 use Jaytaph\Spacetraders\Api\Component\Link;
 use Jaytaph\Spacetraders\Api\Component\ServerResets;
 use Jaytaph\Spacetraders\Api\Component\Stats;
@@ -15,7 +15,7 @@ class StatusResponse
     public string $resetDate;
     public string $description;
     public Stats $stats;
-    public Leaderboard $leaderboard;
+    public Leaderboards $leaderboards;
     public ServerResets $serverResets;
     /** @var Announcement[] Announcements */
     public array $announcements;
@@ -27,10 +27,10 @@ class StatusResponse
         $response = new self();
         $response->status = $data['status'];
         $response->version = $data['version'];
-        $response->resetDate = $data['reset']['date'];
+        $response->resetDate = $data['resetDate'];
         $response->description = $data['description'];
         $response->stats = Stats::fromJson($data['stats']);
-        $response->leaderboard = Leaderboard::fromJson($data['leaderboard']);
+        $response->leaderboards = Leaderboards::fromJson($data['leaderboards']);
         $response->serverResets = ServerResets::fromJson($data['serverResets']);
         $response->announcements = array_map(fn ($announcement) => Announcement::fromJson($announcement), $data['announcements']);
         $response->links = array_map(fn ($link) => Link::fromJson($link), $data['links']);
