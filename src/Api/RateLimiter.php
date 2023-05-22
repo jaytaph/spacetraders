@@ -22,7 +22,7 @@ class RateLimiter implements ApiInterface
     public function execute(Command $command): ApiResponse
     {
         // Failsafe to prevent infinite loops
-        $failSafe = 100;
+        $failSafe = 101;
 
         // Repeat until we get a response that is not a rate limit error.
         while ($failSafe) {
@@ -33,12 +33,21 @@ class RateLimiter implements ApiInterface
                 return $response;
             }
 
+            // If we don't have a rate limit header.. back off a bit
+            if (! $response->httpResponse->hasHeader('x-ratelimit-reset')) {
+                sleep(1);
+                continue;
+            }
+
             // Calculate how long we need to wait for the rate limit to reset
             $expires = new \DateTime($response->httpResponse->getHeader('x-ratelimit-reset')[0]);
             $diff = (new \DateTime())->diff($expires);
             $throttle = $diff->s * 1000000 + $diff->f;
 
-            usleep($throttle);
+            // A bit of backoff to prevent hammering the API
+            $backoff = ((100-$failSafe) * 100) * 1000;
+            print  "Backoff: " . $backoff . "\n";
+            usleep($throttle + 10000 + $backoff);
         }
 
         throw new \Exception("Failsafe in rate limitter triggered");
