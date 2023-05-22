@@ -13,7 +13,7 @@ class Leaderboards
     {
         $leaderboards = new self();
         $leaderboards->mostCredits = array_map(fn ($leaderboard) => LeaderboardCredits::fromJson($leaderboard), $data['mostCredits']);
-        $leaderboards->mostSubmitted = array_map(fn ($leaderboard) => LeaderboardCharts::fromJson($leaderboard), $data['mostSubmitted']);
+        $leaderboards->mostSubmitted = array_map(fn ($leaderboard) => LeaderboardCharts::fromJson($leaderboard), $data['mostSubmittedCharts']);
 
         return $leaderboards;
     }
