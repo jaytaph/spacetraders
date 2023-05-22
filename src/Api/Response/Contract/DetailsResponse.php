@@ -4,7 +4,7 @@ namespace Jaytaph\Spacetraders\Api\Response\Contract;
 
 use Jaytaph\Spacetraders\Api\Component\Contract;
 
-class DetailResponse
+class DetailsResponse
 {
     public Contract $contract;
 
