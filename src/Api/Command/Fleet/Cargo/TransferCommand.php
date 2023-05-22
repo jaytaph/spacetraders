@@ -1,20 +1,22 @@
 <?php
 
-namespace Jaytaph\Spacetraders\Api\Command\Fleet;
+namespace Jaytaph\Spacetraders\Api\Command\Fleet\Cargo;
 
 use Jaytaph\Spacetraders\Api\Command\Command;
 
-class JettisonCargoCommand implements Command
+class TransferCommand implements Command
 {
     protected string $ship;
     protected string $symbol;
     protected int $units;
+    protected string $targetShip;
 
-    public function __construct(string $ship, string $symbol, int $units)
+    public function __construct(string $ship, string $symbol, int $units, string $targetShip)
     {
         $this->ship = $ship;
         $this->symbol = $symbol;
         $this->units = $units;
+        $this->targetShip = $targetShip;
     }
 
     public function getMethod(): string
@@ -24,14 +26,15 @@ class JettisonCargoCommand implements Command
 
     public function getUri(): string
     {
-        return '/v2/my/ships/' . $this->ship . '/jettison';
+        return '/v2/my/ships/' . $this->ship . '/transfer';
     }
 
     public function getJson(): array
     {
         return [
-            'symbol' => $this->symbol,
+            'tradeSymbol' => $this->symbol,
             'units' => $this->units,
+            'shipSymbol' => $this->targetShip,
         ];
     }
 }

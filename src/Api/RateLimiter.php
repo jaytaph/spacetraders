@@ -3,6 +3,7 @@
 namespace Jaytaph\Spacetraders\Api;
 
 use Jaytaph\Spacetraders\Api\Command\Command;
+use Jaytaph\Spacetraders\Api\Exception\SpacetradersException;
 
 /**
  * This is a wrapper around the API that handles rate limiting.
@@ -46,11 +47,11 @@ class RateLimiter implements ApiInterface
 
             // A bit of backoff to prevent hammering the API
             $backoff = ((100-$failSafe) * 100) * 1000;
-            print  "Backoff: " . $backoff . "\n";
+            print  "API ratelimit backoff: " . $backoff . "\n";
             usleep($throttle + 10000 + $backoff);
         }
 
-        throw new \Exception("Failsafe in rate limitter triggered");
+        throw new SpacetradersException("Failsafe in rate limitter triggered");
     }
 }
 

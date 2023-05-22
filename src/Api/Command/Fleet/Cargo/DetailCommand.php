@@ -1,10 +1,10 @@
 <?php
 
-namespace Jaytaph\Spacetraders\Api\Command\Fleet;
+namespace Jaytaph\Spacetraders\Api\Command\Fleet\Cargo;
 
 use Jaytaph\Spacetraders\Api\Command\Command;
 
-class CargoDetailCommand implements Command
+class DetailCommand implements Command
 {
     protected string $symbol;
 

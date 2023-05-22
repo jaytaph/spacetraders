@@ -1,10 +1,10 @@
 <?php
 
-namespace Jaytaph\Spacetraders\Api\Command\Fleet;
+namespace Jaytaph\Spacetraders\Api\Command\Fleet\Cargo;
 
 use Jaytaph\Spacetraders\Api\Command\Command;
 
-class SellCommand implements Command
+class JettisonCommand implements Command
 {
     protected string $ship;
     protected string $symbol;
@@ -24,7 +24,7 @@ class SellCommand implements Command
 
     public function getUri(): string
     {
-        return '/v2/my/ships/' . $this->ship . '/sell';
+        return '/v2/my/ships/' . $this->ship . '/jettison';
     }
 
     public function getJson(): array
