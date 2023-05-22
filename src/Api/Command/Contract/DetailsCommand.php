@@ -4,7 +4,7 @@ namespace Jaytaph\Spacetraders\Api\Command\Contract;
 
 use Jaytaph\Spacetraders\Api\Command\Command;
 
-class DetailCommand implements Command
+class DetailsCommand implements Command
 {
     protected string $id;
 
