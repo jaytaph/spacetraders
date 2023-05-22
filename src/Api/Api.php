@@ -51,17 +51,6 @@ class Api implements ApiInterface
         }
 
         $response = $this->client->request($command->getMethod(), $command->getUri(), $options);
-
-//        // Do error checks
-//        if ($response->getStatusCode() >= 400) {
-//            $contents = $response->getBody()->getContents();
-//            if ($contents == null) {
-//                throw new SpacetradersException($response->getReasonPhrase(), $response->getStatusCode());
-//            } else {
-//                throw new SpacetradersException($contents);
-//            }
-//        }
-
         return ApiResponse::createFromResponse($response);
     }
 }

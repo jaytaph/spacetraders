@@ -6,13 +6,13 @@ use Psr\Http\Message\ResponseInterface;
 
 class ApiResponse
 {
-    public int $statusCode;         // Returned HTTP status code
-    public bool $success;           // True when the call was successful
-    public string $errorMessage;    // Option error message when the call was not successful
-    public string $content;         // Raw content of the response
-    public array $response;         // Actual complete response (meta + data + any other information)
-    public array $data;             // Information retrieved from json data
-    public array $meta;             // Information retrieved from json meta
+    public int $statusCode = 0;              // Returned HTTP status code
+    public bool $success = false;            // True when the call was successful
+    public string $errorMessage = '';        // Option error message when the call was not successful
+    public string $content = '';             // Raw content of the response
+    public array $response = [];             // Actual complete response (meta + data + any other information)
+    public array $data = [];                 // Information retrieved from json data
+    public array $meta = [];                 // Information retrieved from json meta
     public ResponseInterface $httpResponse;  // Actual response object from http client
 
     public static function createFromResponse(ResponseInterface $response): ApiResponse
