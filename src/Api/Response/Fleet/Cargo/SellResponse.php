@@ -1,6 +1,6 @@
 <?php
 
-namespace Jaytaph\Spacetraders\Api\Response\Fleet;
+namespace Jaytaph\Spacetraders\Api\Response\Fleet\Cargo;
 
 use Jaytaph\Spacetraders\Api\Component\Agent;
 use Jaytaph\Spacetraders\Api\Component\Cargo;

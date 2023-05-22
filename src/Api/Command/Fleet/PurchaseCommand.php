@@ -4,7 +4,7 @@ namespace Jaytaph\Spacetraders\Api\Command\Fleet;
 
 use Jaytaph\Spacetraders\Api\Command\Command;
 
-class PurchaseShipCommand implements Command
+class PurchaseCommand implements Command
 {
     protected string $shipType;
     protected string $waypointSymbol;

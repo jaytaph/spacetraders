@@ -4,7 +4,7 @@ namespace Jaytaph\Spacetraders\Api\Command\System\Waypoint;
 
 use Jaytaph\Spacetraders\Api\Command\Command;
 
-class DetailCommand implements Command
+class DetailsCommand implements Command
 {
     protected string $systemSymbol;
     protected string $waypointSymbol;

@@ -4,7 +4,7 @@ namespace Jaytaph\Spacetraders\Api\Response\System;
 
 use Jaytaph\Spacetraders\Api\Component\System;
 
-class DetailResponse
+class DetailsResponse
 {
     public System $system;
 

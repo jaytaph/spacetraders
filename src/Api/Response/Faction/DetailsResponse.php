@@ -4,7 +4,7 @@ namespace Jaytaph\Spacetraders\Api\Response\Faction;
 
 use Jaytaph\Spacetraders\Api\Component\Faction;
 
-class DetailResponse
+class DetailsResponse
 {
     public Faction $faction;
 

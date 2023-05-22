@@ -4,7 +4,7 @@ namespace Jaytaph\Spacetraders\Api\Command\Fleet;
 
 use Jaytaph\Spacetraders\Api\Command\Command;
 
-class DetailCommand implements Command
+class NavDetailsCommand implements Command
 {
     protected string $symbol;
 
@@ -20,7 +20,7 @@ class DetailCommand implements Command
 
     public function getUri(): string
     {
-        return '/v2/my/ships/' . $this->symbol;
+        return '/v2/my/ships/' . $this->symbol . '/nav';
     }
 
     public function getJson(): array

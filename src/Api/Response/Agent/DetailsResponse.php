@@ -2,7 +2,7 @@
 
 namespace Jaytaph\Spacetraders\Api\Response\Agent;
 
-class Response
+class DetailsResponse
 {
     public string $accountId;
     public string $symbol;

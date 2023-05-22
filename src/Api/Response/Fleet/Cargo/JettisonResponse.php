@@ -1,10 +1,10 @@
 <?php
 
-namespace Jaytaph\Spacetraders\Api\Response\Fleet;
+namespace Jaytaph\Spacetraders\Api\Response\Fleet\Cargo;
 
 use Jaytaph\Spacetraders\Api\Component\Cargo;
 
-class JettisonCargoResponse
+class JettisonResponse
 {
     public Cargo $cargo;
 

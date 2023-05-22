@@ -1,10 +1,10 @@
 <?php
 
-namespace Jaytaph\Spacetraders\Api\Command\System;
+namespace Jaytaph\Spacetraders\Api\Command\Fleet;
 
 use Jaytaph\Spacetraders\Api\Command\Command;
 
-class DetailCommand implements Command
+class DetailsCommand implements Command
 {
     protected string $symbol;
 
@@ -20,7 +20,7 @@ class DetailCommand implements Command
 
     public function getUri(): string
     {
-        return '/v2/systems/' . $this->symbol;
+        return '/v2/my/ships/' . $this->symbol;
     }
 
     public function getJson(): array

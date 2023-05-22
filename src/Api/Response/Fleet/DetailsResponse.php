@@ -2,16 +2,16 @@
 
 namespace Jaytaph\Spacetraders\Api\Response\Fleet;
 
-use Jaytaph\Spacetraders\Api\Component\Nav;
+use Jaytaph\Spacetraders\Api\Component\Ship;
 
-class NavDetailResponse
+class DetailsResponse
 {
-    public Nav $nav;
+    public Ship $ship;
 
     public static function fromJson(array $data): self
     {
         $result = new self();
-        $result->nav = Nav::fromJson($data);
+        $result->ship = Ship::fromJson($data);
 
         return $result;
     }

@@ -4,7 +4,7 @@ namespace Jaytaph\Spacetraders\Api\Response\System\Waypoint;
 
 use Jaytaph\Spacetraders\Api\Component\Waypoint;
 
-class DetailResponse
+class DetailsResponse
 {
     public Waypoint $waypoint;
 
