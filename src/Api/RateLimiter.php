@@ -46,13 +46,11 @@ class RateLimiter implements ApiInterface
             $throttle = $diff->s * 1000000 + $diff->f;
 
             // A bit of backoff to prevent hammering the API
-            $backoff = ((100-$failSafe) * 100) * 1000;
+            $backoff = ((100 - $failSafe) * 100) * 1000;
             print  "API ratelimit backoff: " . $backoff . "\n";
-            usleep($throttle + 10000 + $backoff);
+            usleep(intval($throttle + 10000 + $backoff));
         }
 
         throw new SpacetradersException("Failsafe in rate limitter triggered");
     }
 }
-
-

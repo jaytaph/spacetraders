@@ -10,7 +10,7 @@ class NegotiateCommand implements Command
 
     public function __construct(string $shipSymbol)
     {
-        $this->waypointSymbol = $waypointSymbol;
+        $this->shipSymbol = $shipSymbol;
     }
 
     public function getMethod(): string
